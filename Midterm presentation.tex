@@ -1,0 +1,247 @@
+\documentclass[compress,handout,10pt]{beamer}
+
+\newlength{\wideitemsep}
+\setlength{\wideitemsep}{\itemsep}
+\addtolength{\wideitemsep}{100pt}
+\let\olditem\item
+\renewcommand{\item}{\setlength{\itemsep}{0.5\baselineskip}\olditem}
+
+\usetheme{Singapore}
+\usecolortheme{lily}
+\usefonttheme[onlymath]{serif}
+\usepackage{float}
+\floatstyle{boxed}
+\usepackage{colortbl}
+\usepackage{mathpazo}
+\usepackage{graphicx}
+\usepackage{movie15}
+\usepackage{bm}
+\usepackage{verbatim}
+\usepackage{comment}
+\usepackage{caption}
+\usepackage{subcaption}
+\captionsetup[subfigure]{labelformat=empty}
+\captionsetup[figure]{labelformat=empty}
+
+\newcommand{\mygreen}{\color{green!50!black}}
+\newcommand{\myblue}{\color{blue}}
+\newcommand{\myred}{\color{red}}
+\newcommand{\mycolor}{\color{red}{c}\color{blue}{o}\color{green}{l}\color{orange}{o}\color{cyan}{r}}
+\newcommand{\mysize}{\scriptsize{s}\small{i}\normalsize{z}\Large{e}}
+\newcommand{\myshape}{\textcircled{s}\textit{h}\texttt{a}\textsf{p}\textsc{e}}
+
+\xdefinecolor{titlecolor}{rgb}{.855,.647,.125}
+\setbeamercolor{frametitle}{fg=titlecolor}
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamercolor{normal text in math text}{parent=math text}
+
+\setbeamertemplate{navigation symbols}{} %gets rid of navigation symbols
+\setbeamertemplate{footline}[frame number]
+\beamertemplateshadingbackground{blue!5}{yellow!10}
+
+\title{{\color{blue} \LARGE Effect from imperfect information in different electricity market\newline} }
+
+\subtitle{{\color{red} \large Mid-term Presentation} }
+
+\author{ 
+%    \vspace{5pt}
+    {\bf{Presenter:}} \\ 
+Yue~Wu \\ 
+    \vspace{5pt}
+} 
+\institute{JHU AMS 2012 FALL}
+
+\date{\mygreen Last Complied on \today} 
+
+\begin{document}
+
+\begin{frame}[plain]
+    \titlepage
+\end{frame}
+
+\begin{frame}
+    \frametitle{Outline}
+    \tableofcontents
+\end{frame}
+
+\section{Background}
+
+\begin{frame}
+    \frametitle{Sponsor}
+   
+    \vspace{7pt}
+Baltimore Gas and Electric (BGE)
+\\
+For nearly 200 years, BGE has been the innovator in meeting the energy needs of Central Maryland residents and businesses with a growing array of programs, services and resources that are defining the next generation of energy management.  This innovation continues today as we serve more than 1.2 million electric customers and more than 650,000 gas customers in an economically diverse, 2,300-square-mile area encompassing Baltimore City and all or part of 10 Central Maryland counties.
+ 
+\end{frame}
+
+\begin{frame}
+    \frametitle{Basic Facts}
+   
+    \vspace{7pt}
+
+
+             \begin{itemize}
+                 \item In the electricity market, companies have to make decisions based on prediction of electricity demand and price
+                 \item No prediction is perfect. Companies will have to deal with imperfect information
+                
+             \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Different Kinds of Decision Making in Electricity Market}
+\begin{itemize}
+                 \item Operations planning
+              \begin{itemize}
+                 \item Unit commitment
+                 \item Maintenance and production scheduling
+               \end{itemize}
+                 \item Real time operations:
+              \begin{itemize}
+                 \item Dispatch
+                 \item Automatic protection
+               \end{itemize}
+             \end{itemize}
+\end{frame}
+
+\section{General Introduction}
+\begin{frame}
+    \frametitle{Purpose}
+     \begin{itemize}
+     \item Purpose of this project is to find out how prediction accuracy affect companies' behavior and benefit in the electricity market.
+     \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Model Assumptions}
+     \begin{itemize}
+     \item Linearity
+     \item Error distribution
+     \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Scenarios}
+There are two scenarios to be discussed in the project:
+     \begin{itemize}
+     \item Single firm model
+     \item Competitive market/optimal bidding model
+     \end{itemize}
+\end{frame}
+
+\section{Tools}
+\begin{frame}
+    \frametitle{Approach}
+    \begin{itemize}
+    \item For the single firm scenario, the problem will be set as a linear optimization problem with single objective function; a software solver such as excel solver or matlab will be used to solve the problem.
+    \item For the optimal bidding scenario.the problem will be maximize the expected profit by hand.
+    \end{itemize}
+\end{frame}
+
+\section{Model Description}
+
+\begin{frame}
+    \frametitle{Single Firm Scenario}
+     \begin{itemize}
+     \item Market(competitor)
+     \item Demand
+     \item Price
+     \item Utility 
+     \end{itemize}    
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Single Firm Scenario}
+     Objective:
+     \begin{itemize}
+     \item Minimize operation cost
+     \end{itemize}
+     Decision variables:
+     \begin{itemize}
+     \item Which unit/units to be used for the moment
+     \item What kind of fuel or technology to generate from for the particular moment
+     \end{itemize}    
+\end{frame}
+
+\begin{frame}
+    \frametitle{Single Firm Scenario}
+     Constraints:
+     \begin{itemize}
+     \item Capacity
+     \item Demand
+     \item Environmental regulations
+     \item Ramp
+     \item Reserved capacity
+     \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Optimal Bidding Scenario}
+     \begin{itemize}
+     \item Market(competitor)
+     \item Demand
+     \item Price
+     \item Bidding System
+     \end{itemize}    
+\end{frame}
+
+\begin{frame}
+    \frametitle{Optimal Bidding Scenario}
+     Objective:
+     \begin{itemize}
+     \item Maximize expected profit
+     \end{itemize}
+     Decision variables:
+     \begin{itemize}
+     \item Bid quantity
+     \item Bid price
+     \end{itemize}  
+     Information:
+     \begin{itemize}
+     \item Prediction of price
+     \item Error distribution of prediction
+     \item Effective demand curve (optional)
+     \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Optimal Bidding Scenario}
+     Constraint:
+     \begin{itemize}
+     \item Bidding cap
+     \end{itemize}
+     Different situation:
+     \begin{itemize}
+     \item No market power
+          \begin{itemize}
+          \item Market clearing price system
+          \item Pay as bid
+          \end{itemize}
+     \item With elastic demand
+     \end{itemize}    
+\end{frame}
+
+\section{Deliverable}
+\begin{frame}
+    \frametitle{Project Output}
+The following outputs are expected from this project:
+\begin{itemize}
+    \item List of economics results under different scenarios of different prediction accuracy,
+    \item Mathematical description of market models, including data and equations,
+    \item Spreadsheet of Excel showing details of how the model is structured and solved,
+    \item Technical report and presentations summarizing the work.  
+\end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Bibliography}
+\frametitle{Reference}
+\bibliographystyle{plain}
+\nocite{*}
+\bibliography{biblio}
+\end{frame}
+
+\end{document}
